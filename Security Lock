@@ -1,1 +1,34 @@
+local passtimes = 3
 
+os.pullEvent = os.pullEventRaw                                           --Prevents people from terminating the program
+rs.setOutput ("bottom", true)                                            --Sets the redstone output to true
+
+while true do                                                            --Runs a constant loop to check password input
+term.clear ()                                                            --Clears the unput after every attempt
+term.setCursorPos(1,1)                                                   --Sets the input position
+print ("Please Enter Password:")                                         --Sets the prompt for the program
+local input = read ("x")                                                 --Makes sure inputs display as stars
+
+if input =="OG" then                                                     --Checks if the input entered is "OG"
+print("Welcome, Member of the OG Squad")                                 --Welcomes user if password entered is correct
+sleep(2)                                                                 --Displays message for 2 seconds
+redstone.setOutput ("bottom", false)                                     --If it is, it shuts off redstone
+sleep(5)                                                                 --Keeps the signal shut for 5 seconds
+redstone.setOutput ("bottom", true)                                      --Turns redstone back on to prevent unwanted followers
+local passtimes = 3                                                      --Resets # of attempts after the correct input
+
+elseif input == "terminate" then                                         --If input = "terminate"
+exit ()                                                                  --Exits the program
+
+else                                                                     --If any other case is detected
+passtimes = passtimes - 1                                                --Then amount of attempts remaining decreases by 1
+print(Password Incorrect, you have ".. passtimes.."more attempts")       --It will display that the password is incorrect
+sleep(3)                                                                 --Displays the message for 3 seconds
+if passtimes < 1 then                                                    --If the amount of attempts remaining is less than 1 then
+print("Maximum attempts reached. Try again in 2 minutes")                --Will diplay what is occuring
+sleep (120)                                                              --Sets 120 second timer until being able to retry the program
+passtimes = 1                                                            --Gives another chance after 2 minutes
+
+end
+end
+end
