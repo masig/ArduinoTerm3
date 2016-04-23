@@ -1,0 +1,29 @@
+//TITLE OF CODE: DEFENSEWATER
+
+while true do 
+rednet.open("back") --Opens up the wireless router 
+id, passtimes = rednet.receive() --allows the computer to recieve rednet signals 
+if passtimes < 1 then
+rednet.send(884, "message")
+sleep(0.1)
+end
+end
+
+//TITLE OF CODE: DEFENSE
+
+while true do
+rednet.open("left") --Opens up the wireless router on the left side 
+id, message = rednet.receive()
+print("Computer "..id.. " has sent us a message") --When rednet signal is recieved the computer prints the stated messages
+print("The message is:") --Prints stated message 
+print (message) --Prints stated message 
+sleep(5) --Causes a 5 second delay between actions 
+term.clear()  --Clears the screen 
+term.setCursorPos(1,1) --Sets the terminal cursor at the top of the page 
+end
+
+//TITLE OF CODE: DEFENSEWARNING
+
+peripheral.wrap("bottom").write("Intruder Alert")
+peripheral.wrap("bottom").setTextScale(5)
+
