@@ -1,8 +1,8 @@
-while true do                             --Always repeating
-rednet.open("back") --Opens the rednet modum on back of computer
-id, passtimes = rednet.receive()--Receives message sent by vault code
-if passtimes < 1 then --If contents of message tells the computer that passtime is under 1
-rednet.send(884, "message") --Sends message to water denfense turtle so that it can carry out its program
-sleep(0.1) --Avoids error message
+while true do                                 --Always repeating
+rednet.open("back")                           --Opens the rednet modum on back of computer
+id, passtimes = rednet.receive()              --Receives message sent by vault code
+if passtimes < 1 then                         --If contents of message tells the computer that passtime is under 1
+rednet.send(884, "message")                   --Sends message to water denfense turtle so that it can carry out its program
+sleep(0.1)                                    --Avoids error message
 end
 end
