@@ -26,8 +26,9 @@ print(Password Incorrect, you have ".. passtimes.."more attempts")       --It wi
 sleep(3)                                                                 --Displays the message for 3 seconds
 if passtimes < 1 then                                                    --If the amount of attempts remaining is less than 1 then
 print("Maximum attempts reached. Try again in 2 minutes")                --Will diplay what is occuring
-sleep (120)                                                              --Sets 120 second timer until being able to retry the program
+rs.setOutput("left", true)                                               --Sends redstone output from the left side of the computer
 passtimes = 1                                                            --Gives another chance after 2 minutes
+sleep (120)                                                              --Sets 120 second timer until being able to retry the program
 
 end
 end
