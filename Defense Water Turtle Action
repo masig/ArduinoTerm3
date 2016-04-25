@@ -1,1 +1,43 @@
-
+local runtime = 1                           --Declares variable as 1
+while true do
+ 
+rednet.open("left")                         --Opens the left side wireless rednet motum
+id, message = rednet.receive()              --Receives the message sent by the computer
+ 
+while runtime == 1 do                       --Checks if variable = 1 and if true executes action
+ 
+if message == "message" then                --If the recieved message is equals to message,executes the rest of the program
+ 
+for n = 1, 2 do                             --Repeats turtle actions twice
+  turtle.up()                               --Turtle moves up 1 block
+end
+turtle.select( 3 )                          --Turtle selects its third inventory slot which houses a pickaxe
+turtle.dig()                                --Turtle digs forward
+for n = 1, 2 do                             --Repeat turtle actions twice
+  turtle.forward()                          --Turtle moves forward 1 block
+end
+turtle.turnRight()                          --Turns the turtle to the right
+turtle.select( 1 )                          --Turle selects inventory slot #1
+turtle.placeDown()                          --Turles places down whatever is in slot #1 (in this case water)
+for n = 1, 3 do                             --Repeats turtle actions 3 times
+  turtle.turnLeft()                         --Turns the turtle to the left
+end --Ends program
+for n = 1, 2 do                             --Repeats turtle action twice
+  turtle.forward()                          --Turtle moves forward 1 block
+end
+for n = 1, 2 do                             --Repeats turtle action twice
+  turtle.turnRight()                        --Turtle turns to the right
+end                                         --Ends the program
+turtle.select( 2 )                          --Turtle selects inventory slot 2
+turtle.place()                              --Turtle places whatever item is in its second slot (in this case a stained cyan blue glass block)    
+for n = 1, 2 do                             --Turtle repeats its action twice
+  turtle.down()                             --Turtle moves down
+end
+runtime = runtime - 1                       --Variable making sure that the turtle doesnt run in an infinite loop
+ 
+  else
+  sleep(0.1)                                --Avoids error message
+ 
+end
+end
+end
