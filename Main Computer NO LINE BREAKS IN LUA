@@ -1,39 +1,39 @@
-local EntrancePass = "OG"              --Sets EntrancePass as "OG"
-local ExitPass = "OG2"                 --Sets ExitPass to OG2
-local MasterPass = "admin"             --Sets MasterPass to "admin"
-local passtimes = 3                    --Sets the amount of password attempts to 3
-local passcheck = 2                    --Sets passcheck to value of 2
-local MasterPassNew                    --Sets MasterPassNew to a string that will be determined later
-local ExitPassNew                      --Sets ExitPassNew to a value to be determined by user
-local EntrancePassNew                  --Sets EntrancePassNew to a string to be determined by user.
+local EntrancePass = "OG"                                                      --Sets EntrancePass as "OG"
+local ExitPass = "OG2"                                                         --Sets ExitPass to OG2
+local MasterPass = "admin"                                                     --Sets MasterPass to "admin"
+local passtimes = 3                                                            --Sets the amount of password attempts to 3
+local passcheck = 2                                                            --Sets passcheck to value of 2
+local MasterPassNew                                                            --Sets MasterPassNew to a string that will be determined later
+local ExitPassNew                                                              --Sets ExitPassNew to a value to be determined by user
+local EntrancePassNew                                                          --Sets EntrancePassNew to a string to be determined by user.
  
-os.pullEvent = os.pullEventRaw         --Prevents people from terminating the program
+os.pullEvent = os.pullEventRaw                                                 --Prevents people from terminating the program
 while true do
 sleep(0.1)
 rednet.open("back")
  
     passcheck = 2
-    while passcheck > 1 do                          --Runs a constant loop to check password input
+    while passcheck > 1 do                                                    --Runs a constant loop to check password input
     sleep(0.1)
-    term.clear()                           --Clears the input after every attempt
-    term.setCursorPos(1,1)                 --Sets the input position
-    print("Please Enter Password:")        --Sets the prompt for the program  
-    local VaultPass = read("*")                --Makes sure inputs display as stars
+    term.clear()                                                              --Clears the input after every attempt
+    term.setCursorPos(1,1)                                                    --Sets the input position
+    print("Please Enter Password:")                                           --Sets the prompt for the program  
+    local VaultPass = read("*")                                               --Makes sure inputs display as stars
    
  
-         if VaultPass == "admin" then                --Checks if the input entered is "OG"
+         if VaultPass == "admin" then                                         --Checks if the input entered is "OG"
          passcheck = 1                                        
          passtimes = 3
-         print("Welcome to the main command computer")
-         sleep(1)                             --keeps the signal shut for 5 seconds
-         term.clear()
-         term.setTextColor(colors.green)
+         print("Welcome to the main command computer")                        --Prints "Welcome to Computer...
+         sleep(1)                                                             --keeps the signal shut for 5 seconds
+         term.clear()                                                         --Clears the screen
+         term.setTextColor(colors.green)                                      --Sets text color to green
          term.setCursorPos(1,1)
          print("To edit a password, type the name it is labelled as in the input")
          sleep(0.1)
-         term.setTextColor(colors.red)
-         term.setCursorPos(1,3)
-         print("MainEntrancePassword: " ..EntrancePass.. " ")
+         term.setTextColor(colors.red)                                        --Sets text color to red
+         term.setCursorPos(1,3)                                               --Skips a line 
+         print("MainEntrancePassword: " ..EntrancePass.. " ")                 --Prints the password 
          sleep(0.1)
          term.setCursorPos(1,5)
          print("MainExitPassword: " ..ExitPass.. " ")
@@ -48,11 +48,11 @@ rednet.open("back")
             sleep(0.1)
             term.setCursorPos(1,10)
             local edit = read()
---local edit = "MainExitPassword"
-                if edit == "MainExitPassword" then
-                term.clear()
-                term.setCursorPos(1,1)
-                print("MainExitPassword:")
+--local edit = "MainExitPassword"                                                --If input = "MainExit Password"
+                if edit == "MainExitPassword" then  
+                term.clear()                                                     --Clear screen
+                term.setCursorPos(1,1) 
+                print("MainExitPassword:")      
                 sleep(0.1)
                 term.setCursorPos(1,3)
                 print("Current Password:" ..ExitPass.." ")
@@ -63,7 +63,7 @@ rednet.open("back")
                 term.setCursorPos(1,7)
                 local ExitPassEdit = read()
                
-                    if MasterPassEdit == 'edit' then
+                    if MasterPassEdit == 'edit' then                             --Allows the password to be changed
                     sleep(0.1)
                     term.clear()
                     term.setCursorPos(1,1)
@@ -79,7 +79,7 @@ rednet.open("back")
                    
            
  
-                elseif edit == "MainEntrancePassword" then
+                elseif edit == "MainEntrancePassword" then                   --Code is repeated, just for different variations
                 term.clear()
                 term.setCursorPos(1,1)
                 print("MainEntrancePassword:")
@@ -110,7 +110,7 @@ rednet.open("back")
            
  
  
-                elseif edit == "MasterPCPassword" then
+                elseif edit == "MasterPCPassword" then                        --Code is repeated, just with different variations
                 term.clear()
                 term.setCursorPos(1,1)
                 print("MainPCPassword:")
@@ -141,13 +141,13 @@ rednet.open("back")
                end
             end
  
-  elseif VaultPass == "terminate" then     --If input = "terminate"
-  exit()                               --Exits the program
+  elseif VaultPass == "terminate" then                                             --If input = "terminate"
+  exit()                                                                           --Exits the program
  
-  else                                   --if any other case is detected
+  else                                                                             --if any other case is detected
   passtimes = passtimes - 1
-  print("Password Incorrect, you have "..  passtimes .."  more attempt(s)")      --It will display that the password is incorrect
-  sleep(3)                             --displays the message for one second then resets
+  print("Password Incorrect, you have "..  passtimes .."  more attempt(s)")       --It will display that the password is incorrect
+  sleep(3)                                                                        --displays the message for one second then resets
     if passtimes < 1 then
     print("Maximum attempts reached. Try again in 2 minutes")
     rs.setOutput("left", true)
