@@ -19,7 +19,7 @@ local input = read("*")                                                         
   sleep(5)                                                                       --Keeps the signal shut for 5 seconds
   redstone.setOutput("bottom", true)                                             --Turns redstone back on to prevent unwanted followers
  
-  elseif input == "terminate" then                                               --If input = "terminate"
+  elseif input == "terminate" then                                               --If input equals "terminate"
   exit()                                                                         --Exits the program
  
    else                                                                          --If any other case is detected
