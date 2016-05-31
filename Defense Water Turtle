@@ -21,7 +21,7 @@ turtle.select( 1 )                          --Turle selects inventory slot #1
 turtle.placeDown()                          --Turles places down whatever is in slot #1 (in this case water)
 for n = 1, 3 do                             --Repeats turtle actions 3 times
   turtle.turnLeft()                         --Turns the turtle to the left
-end --Ends program
+end                                         --Ends program
 for n = 1, 2 do                             --Repeats turtle action twice
   turtle.forward()                          --Turtle moves forward 1 block
 end
